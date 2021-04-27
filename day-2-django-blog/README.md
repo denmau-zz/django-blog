@@ -10,3 +10,7 @@ Live Link : <a href="https://denmaublog.herokuapp.com">denmaublog.herokuapp.com<
 *   CSS
 *   Bootstrap
 *   DataBase
+
+Admin Credentials:
+username: denmau
+password: secretp@ss
