@@ -1,4 +1,4 @@
-#Django Blog
+# Django Blog
 100DaysOfCode - Day 2
 
 Live Link : <a href="https://denmaublog.herokuapp.com">denmaublog.herokuapp.com</a>
@@ -10,3 +10,7 @@ Live Link : <a href="https://denmaublog.herokuapp.com">denmaublog.herokuapp.com<
 *   CSS
 *   Bootstrap
 *   DataBase
+ <br />
+Admin Credentials: <br />
+username: 'denmau' <br />
+password: 'secretp@ss'
