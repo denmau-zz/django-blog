@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
+    <a href="{% url 'post_edit' post.pk %}">Edit Post</a>
+    <span class="mx-5"></span>
+    <a href="{% url 'post_delete' post.pk %}" class="text-danger">Delete Post</a>
     <div class="post-entry">
         <h2>{{ object.title }}</h2>
         <p>{{ object.body }}</p>
