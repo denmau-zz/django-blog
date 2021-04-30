@@ -7,7 +7,10 @@
 </div>
 
 {% block content %}
-
+    {% if user.is_authenticated %}
+        <p>Hi {{ user.username }}</p>
+        <a href="{% url 'logout' %}">Log out</a>
+    {% endif %}
     {% for post in  object_list %}
         <div class="container border border-info m-2 post-entry">
             <h2><a href="{% url 'post_detail' post.pk %}">{{ post.title }} </a></h2>

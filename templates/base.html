@@ -21,8 +21,13 @@
                 <span class="text-right">
                     {# Spacing done by CSS #}
                 </span>
-                <li class="navbar-item"><a class="nav-link" href="{% url 'post_new' %}">+ New Blog</a>
-                </li>
+                {% if user.is_authenticated %}
+                    <li class="navbar-item"><a class="nav-link" href="{% url 'post_new' %}">+ New Blog</a>
+                    </li>
+                {% else %}
+                    <li class="navbar-item"><a class="nav-link" href="{% url 'login' %}">Log in</a>
+                    </li>
+                {% endif %}
             </ul>
         </div>
     </nav>
