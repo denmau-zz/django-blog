@@ -7,7 +7,7 @@ header {
     border-bottom: 1px solid #999;
     margin-bottom: 2rem;
     display: flex;
-    color: red;
+    color: green;
     width: 100%;
 }
 
@@ -37,6 +37,11 @@ nav {
 .nav-right {
     display: flex;
     padding-top: 2rem;
+}
+
+.current-user {
+    color: green;
+    align-content: center;
 }
 
 .post-entry {

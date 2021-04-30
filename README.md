@@ -1,16 +1,19 @@
 # Django Blog
+
 100DaysOfCode - Day 2
 
 Live Link : <a href="https://denmaublog.herokuapp.com">denmaublog.herokuapp.com</a>
 
-<p>This is a simple Blog project, where the Admin adds Blogs and they are visible to anyone who visits the page</p>
+<p>This is a simple Blog project, where users can create posts, and they are visible on the homepage</p>
+<p>Users have to login or sign up before they can create posts</p>
+<p>The Blog includes CRUD Functionalities: users can edit or delete posts</p>
 
-*   Django  
-*   HTML
-*   CSS
-*   Bootstrap
-*   DataBase
- <br />
-Admin Credentials: <br />
-username: 'denmau' <br />
-password: 'secretp@ss'
+<p>The Admin can edit or delete all blog posts.</p>
+<p>Each user can only edit or delete the blog post that he/she has authored.</p>
+
+* Django
+* HTML
+* CSS
+* Bootstrap
+* SQLite DataBase
+  <br />

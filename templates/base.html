@@ -18,8 +18,11 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
                 <li class="navbar-item"><a class="nav-link" href="{% url 'home' %}">Django Blog</a></li>
-                <span class="text-right">
+                <span class="text-right current-user">
                     {# Spacing done by CSS #}
+                    {% if user.is_authenticated %}
+                        <p>Hi {{ user.username }}, <a href="{% url 'logout' %}">Log out</a></p>
+                    {% endif %}
                 </span>
                 {% if user.is_authenticated %}
                     <li class="navbar-item"><a class="nav-link" href="{% url 'post_new' %}">+ New Blog</a>
