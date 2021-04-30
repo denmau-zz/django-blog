@@ -41,7 +41,9 @@ nav {
 
 .current-user {
     color: green;
+    display: flex;
     align-content: center;
+    justify-content: center;
 }
 
 .post-entry {
