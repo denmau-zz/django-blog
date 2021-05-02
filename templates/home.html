@@ -8,9 +8,18 @@
 
 {% block content %}
     {% for post in  object_list %}
-        <div class="container border border-info m-2 post-entry">
-            <h2><a href="{% url 'post_detail' post.pk %}">{{ post.title }} </a></h2>
-            <p>{{ post.body }}</p>
+        <div class="container m-2 post-entry">
+            <div class="card">
+                <div class="card-header">
+                    <a href="{% url 'post_detail' post.pk %}" class="font-weight-bold">{{ post.title }} </a>
+                </div>
+                <div class=" card-body">
+                    <p>{{ post.body }}</p>
+                </div>
+                <div class="card-footer">
+                    <span class="text-muted">by {{ post.author }} </span>
+                </div>
+            </div>
         </div>
     {% endfor %}
 
