@@ -1,8 +1,9 @@
 from django.urls import path
 
-from .views import ChatListView, ChatCreateView
+from .views import ChatListView, ChatCreateView, process_chat
 
 urlpatterns = [
-    path('chat/new/', ChatCreateView.as_view(), name='post_new'),
+    # path('chat_new/', ChatCreateView.as_view(), name='chat_new'),
+    path('new_chat/', process_chat),
     path('', ChatListView.as_view(), name='home'),
 ]
