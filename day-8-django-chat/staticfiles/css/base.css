@@ -1,17 +1,10 @@
 body {
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: Ubuntu, sans-serif;
     font-size: 18px;
+    position: relative;
 }
 
-header {
-    border-bottom: 1px solid #999;
-    margin-bottom: 2rem;
-    display: flex;
-    color: green;
-    width: 100%;
-}
-
-header h1 a {
+h1 a {
     color: red;
     text-decoration: none;
 }
@@ -39,40 +32,25 @@ nav {
     padding-top: 2rem;
 }
 
-.current-user {
-    color: green;
-    margin: auto;
-    /*display: flex;*/
-    /*align-content: center;*/
-    /*justify-content: center;*/
-}
-
-.card-header a,
-.card-header a:visited {
-    text-decoration: none;
+/* chat message */
+.card-header {
     color: navy;
-
+    background: black;
 }
 
-.post-entry {
-    margin-bottom: 2rem;
-}
-
-.post-entry h2 {
-    margin: 0.5rem 0;
-}
-
-.post-entry h2 a,
-.post-entry h2 a:visited {
-    color: navy;
-    text-decoration: none;
-}
-
-.post-entry p {
+.card-body {
     margin: 0;
-    font-weight: 400;
+    font-family: Ubuntu, sans-serif;
+    font-size: 1rem;
 }
 
-.post-entry h2 a:hover {
-    color: red;
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
+
+
+
+

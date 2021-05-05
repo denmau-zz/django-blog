@@ -15,7 +15,7 @@ class ChatListView(ListView):
 class ChatCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
     model = Chat
     template_name = 'chat_new.html'
-    fields = ['title', 'body']
+    fields = ['message']
 
     def form_valid(self, form):
         form.instance.sender = self.request.user
