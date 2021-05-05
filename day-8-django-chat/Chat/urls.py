@@ -1,10 +1,8 @@
 from django.urls import path
-from .views import ChatListView, BlogDetailView, ChatCreateView, BlogUpdateView, BlogDeleteView
+
+from .views import ChatListView, ChatCreateView
 
 urlpatterns = [
-    path('post/<int:pk>/delete/', BlogDeleteView.as_view(), name='post_delete'),
-    path('post/<int:pk>/edit/', BlogUpdateView.as_view(), name='post_edit'),
-    path('post/new/', ChatCreateView.as_view(), name='post_new'),
-    path('post/<int:pk>/', BlogDetailView.as_view(), name='post_detail'),
+    path('chat/new/', ChatCreateView.as_view(), name='post_new'),
     path('', ChatListView.as_view(), name='home'),
 ]

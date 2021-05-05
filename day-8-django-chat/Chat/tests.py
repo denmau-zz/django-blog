@@ -4,7 +4,11 @@ from django.urls import reverse
 from .models import Chat
 
 
-class BlogTests(TestCase):
+class ChatTests(TestCase):
+    def __init__(self, methodName: str = ...):
+        super().__init__(methodName)
+        self.chat = None
+
     def setUp(self):
         self.user = get_user_model().objects.create_user(
             username='testuser',
@@ -13,61 +17,33 @@ class BlogTests(TestCase):
         )
 
         self.post = Chat.objects.create(
-            title='A good title',
-            body='Nice body content',
-            author=self.user,
+            message='Nice message content',
+            sender=self.user,
         )
 
     def test_string_representation(self):
-        post = Chat(title='A sample title')
+        sample_chat = Chat(message='A sample message')
 
-        self.assertEqual(str(post), post.message)
+        self.assertEqual(str(sample_chat), sample_chat.message)
 
-    def test_post_content(self):
-        self.assertEqual(f'{self.post.message}', 'A good title')
-        self.assertEqual(f'{self.post.sender}', 'testuser')
-        self.assertEqual(f'{self.post.body}', 'Nice body content')
+    def test_chat_content(self):
+        self.assertEqual(f'{self.chat.message}', 'Nice message content')
+        self.assertEqual(f'{self.chat.sender}', 'testuser')
 
-    def test_post_list_view(self):
+    def test_chat_list_view(self):
         response = self.client.get(reverse('home'))
         self.assertEqual(response.status_code, 200)
 
     def test_home_page_status_code(self):
         response = self.client.get('/')
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, 'Nice body content')
+        self.assertContains(response, 'Nice message content')
         self.assertTemplateUsed(response, 'home.html')
 
-    def test_post_detail_view(self):
-        response = self.client.get('/post/1/')
-        no_response = self.client.get('/post/100000/')
-        self.assertEqual(response.status_code, 200)
-        self.assertEqual(no_response.status_code, 404)
-        self.assertContains(response, 'A good title')
-        self.assertTemplateUsed(response, 'post_detail.html')
-
-    def test_get_absolute_url(self):
-        self.assertEqual(self.post.get_absolute_url(), '/post/1/')
-
-    def test_post_create_view(self):
+    def test_chat_create_view(self):
         response = self.client.post(reverse('post_new'), {
-            'title': 'Test title',
-            'body': 'Test text',
-            'author': self.user.id,
+            'message': 'Test text',
+            'sender': self.user.id,
         })
         self.assertEqual(response.status_code, 302)
-        self.assertEqual(Chat.objects.last().message, 'Test title')
-        self.assertEqual(Chat.objects.last().body, 'Test text')
-
-    def test_post_update_view(self):
-        response = self.client.post(reverse('post_edit', args='1'), {
-            'title': 'Updated title',
-            'body': 'Updated text',
-        })
-
-        self.assertEqual(response.status_code, 302)
-
-    def test_post_delete_view(self):
-        response = self.client.post(
-            reverse('post_delete', args='1'))
-        self.assertEqual(response.status_code, 302)
+        self.assertEqual(Chat.objects.last().message, 'Test text')
