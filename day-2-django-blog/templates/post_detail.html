@@ -24,9 +24,28 @@
         <h2>{{ object.title }}</h2>
         <p>{{ object.body }}</p>
     </div>
-    <h6>Comments</h6>
-    {% for comment in post.comments.all %}
-        <p><span class="text-center text-muted">{{ comment.author }}</span>&middot;{{ comment }}</p>
-    {% endfor %}
+
+
+    <div class="card">
+        <div class="card-header">
+            <h6>Comments{% if not user.is_authenticated %} - <a href="{% url 'login' %} ">Login</a> to add
+                comments{% endif %}
+            </h6>
+        </div>
+        {# add comment if user is loged in #}
+        {% if user.is_authenticated %}
+            <form action="{% url 'add_comment' post.pk %}" method="post">
+                {% csrf_token %}
+                <div class="m-2 form-row input-group">
+                    <input class="form-control" type="text" name="comment" id="comment" placeholder="enter comment..."/>
+                    <button type="submit" class="btn btn-primary rounded mx-2" value="ok">Post</button>
+                </div>
+            </form>
+        {% endif %}
+        {% for comment in post.comments.all %}
+            <p class="ml-2"><span class="text-muted">{{ comment.author }}</span>&middot;{{ comment }}</p>
+        {% endfor %}
+    </div>
+
 
 {% endblock content %}

@@ -3,7 +3,7 @@
 from abc import ABC
 
 from django.contrib import auth
-from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib.auth.mixins import c, UserPassesTestMixin
 from django.shortcuts import render
 from django.urls import reverse
 from django.views.generic import ListView
@@ -33,6 +33,7 @@ def process_chat(request):
     # create instance of chat with message in the request
     Chat.objects.create(message=request.POST['chat'], sender=auth.get_user(request))
     # return render(request, 'home.html', {
+    #       display the details sent in the POST request - testing purposes   
     #     'post_data': f"Chat Message: {request.POST['chat']}",
     #     'post_data_type': f"Current User: {auth.get_user(request)}",
     # })
