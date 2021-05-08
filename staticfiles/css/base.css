@@ -1,3 +1,8 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 body {
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 18px;
@@ -11,13 +16,13 @@ header {
     width: 100%;
 }
 
-header h1 a {
-    color: red;
-    text-decoration: none;
-}
-
 nav {
     width: 100%;
+}
+
+.branding a {
+    color: purple;
+    font-family: Ubuntu, serif;
 }
 
 .navbar-nav {
@@ -39,14 +44,6 @@ nav {
     padding-top: 2rem;
 }
 
-.current-user {
-    color: green;
-    margin: auto;
-    /*display: flex;*/
-    /*align-content: center;*/
-    /*justify-content: center;*/
-}
-
 .card-header a,
 .card-header a:visited {
     text-decoration: none;
@@ -56,6 +53,7 @@ nav {
 
 .post-entry {
     margin-bottom: 2rem;
+    min-height: 90vh;
 }
 
 .post-entry h2 {
