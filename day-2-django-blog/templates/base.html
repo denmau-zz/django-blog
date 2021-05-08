@@ -1,45 +1,58 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
+<head>
+    <meta charset="UTF-8"/>
     <meta
-      name="viewport"
-      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+            name="viewport"
+            content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
     />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <!-- CSS -->
-    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" />
-    <link href="{% static  'css/base.css' %}" rel="stylesheet" />
-    <title>Home | Django Blog</title>
-  </head>
-  <body>
-    <header>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet"/>
+    <link href="{% static  'css/base.css' %}" rel="stylesheet"/>
+    <title>{% block title %}Home | Django Blog{% endblock %}</title>
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <a class="navbar-brand branding" href="{% url 'home' %}">Django Blog</a>
-            <span class="text-right current-user">
-              {# Spacing done by CSS #} {% if user.is_authenticated %}
-              <p>
-                Hi {{ user.username }}, <a href="{% url 'logout' %}">Log out</a>
-              </p>
-              {% endif %}
-            </span>
-            {% if user.is_authenticated %}
-            <li class="navbar-item">
-              <a class="nav-link" href="{% url 'post_new' %}">+ New Blog</a>
-            </li>
-            {% else %}
-            <li class="navbar-item">
-              <a class="nav-link" href="{% url 'login' %}">Log in</a>
-            </li>
-            {% endif %}
-          </ul>
-        </div>
-      </nav>
-    </header>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <a class="navbar-brand branding" href="{% url 'home' %}">Django Blog</a>
+                <span class="text-right">
+                    {# Spacing done by CSS #}
+                </span>
 
-    <div class="container">{% block content %} {% endblock content %}</div>
-  </body>
+                {% if user.is_authenticated %}
+                    <form class="form-inline ml-auto">
+                        <a href="{% url 'post_new' %}" class="btn btn-outline-primary">+ New Blog</a>
+                        <a class="btn btn-outline-secondary dropdown-toggle" href="#"
+                           id="navbarDropdown" role="button" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false">
+                            {{ user.username }}
+                        </a>
+                    </form>
+                    <div class="dropdown-menu dropdown-menu-lg-right"
+                         aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item"
+                           href="{% url 'password_change' %}">Change password</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{% url 'logout' %}">
+                            Log Out</a>
+                    </div>
+                {% else %}
+                    <form class="form-inline ml-auto">
+                        <a href="{% url 'login' %}" class="btn btn-outline-secondary">
+                            Log In</a>
+                        <a href="{% url 'signup' %}" class="btn btn-primary ml-2">
+                            Sign up</a>
+                    </form>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<div class="container">{% block content %} {% endblock content %}</div>
+</body>
 </html>

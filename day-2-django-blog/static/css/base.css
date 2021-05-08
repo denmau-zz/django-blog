@@ -44,14 +44,6 @@ nav {
     padding-top: 2rem;
 }
 
-.current-user {
-    color: green;
-    margin: auto;
-    /*display: flex;*/
-    /*align-content: center;*/
-    /*justify-content: center;*/
-}
-
 .card-header a,
 .card-header a:visited {
     text-decoration: none;
