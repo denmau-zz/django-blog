@@ -18,9 +18,7 @@
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="navbar-item">
-              <a class="nav-link" href="{% url 'home' %}">Django Blog</a>
-            </li>
+              <a class="navbar-brand branding" href="{% url 'home' %}">Django Blog</a>
             <span class="text-right current-user">
               {# Spacing done by CSS #} {% if user.is_authenticated %}
               <p>
