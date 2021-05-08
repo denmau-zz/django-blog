@@ -8,10 +8,9 @@ Live Link : <a href="https://denmaublog.herokuapp.com">denmaublog.herokuapp.com<
 
 username: Mark type: standard account password: 'mark12345'
 
-<br/>
-
 username: admin type: admin account password: 'BlogPass1' email: admin@denmaublog.com
 
+<br/>
 login to admin by visiting: <a href="https://denmaublog.herokuapp.com/admin">denmaublog.herokuapp.com/admin</a>
 
 <p>This is a simple Blog project, where users can create posts, and they are visible on the homepage</p>
