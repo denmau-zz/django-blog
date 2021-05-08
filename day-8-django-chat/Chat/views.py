@@ -5,6 +5,7 @@ from abc import ABC
 from django.contrib import auth
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.shortcuts import render
+from django.urls import reverse
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView
 
@@ -29,11 +30,10 @@ class ChatCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView, ABC):
 
 # I found that using a function here as opposed to a class is a lot easier
 def process_chat(request):
-    # create instances of chat
-    # model = Chat
+    # create instance of chat with message in the request
     Chat.objects.create(message=request.POST['chat'], sender=auth.get_user(request))
-    # Chat(message=request.POST['chat'], sender=auth.get_user(request))
-    return render(request, 'home.html', {
-        'post_data': f"Chat Message: {request.POST['chat']}",
-        'post_data_type': f"Current User: {auth.get_user(request)}",
-    })
+    # return render(request, 'home.html', {
+    #     'post_data': f"Chat Message: {request.POST['chat']}",
+    #     'post_data_type': f"Current User: {auth.get_user(request)}",
+    # })
+    # reverse()

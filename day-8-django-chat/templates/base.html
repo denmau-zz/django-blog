@@ -57,10 +57,7 @@
                 {% csrf_token %}
                 <div class="form-row input-group w-100">
                     <input type="text" id="newChat" name="chat" placeholder="type message..."
-                           class="w-75"/>
-                    {# Hidden Field to capture current user as the sender of the message #}
-                    {# This is not secure as user may inspect and change this vaue, however I will work with this for now #}
-                    <input type="text" style="display: none" name="sent_by" value="{{ user.username }}">
+                           class="w-75" autofocus=""/>
                     <button class="btn btn-primary ml-2" type="submit" value="ok">SEND</button>
                 </div>
             </form>
