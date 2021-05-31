@@ -84,7 +84,7 @@ DATABASES = {
     }
 }
 
-# ie if Heroku server use postgresql
+# ie if on Heroku server use postgresql
 if 'DATABASE_URL' in os.environ:
     import dj_database_url
 
