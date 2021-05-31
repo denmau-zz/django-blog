@@ -4,7 +4,7 @@ Live Link at <a href="https://denmaublog.herokuapp.com">denmaublog.herokuapp.com
 
 ### User Accounts
 
-username: Mark type: standard account password: 'mark12345'
+username: Mark type: standard account password: 'funnyfog44'
 
 username: admin type: admin account password: 'BlogPass1' email: admin@denmaublog.com
 
