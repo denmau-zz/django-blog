@@ -1,6 +1,6 @@
 # Django Blog
 
-Live Link : <a href="https://denmaublog.herokuapp.com">denmaublog.herokuapp.com</a>
+Live Link at <a href="https://denmaublog.herokuapp.com">denmaublog.herokuapp.com</a>
 
 ### User Accounts
 
