@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <p class="text-primary">{{ post_data }}</p> <br/>
+    <p class="text-primary">{{ post_data_type }}</p>
+
+    {% for chat in  object_list %}
+        <div class="container m-2 chat-entry">
+            <div class="card">
+                <div class="card-header">
+                    {{ chat.sender }}
+                </div>
+                <div class="card-body">
+                    <p>{{ chat.message }}</p>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+
+{% endblock content %}
+

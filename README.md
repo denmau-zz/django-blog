@@ -1,7 +1,5 @@
 # Django Blog
 
-100DaysOfCode - Day 2
-
 Live Link : <a href="https://denmaublog.herokuapp.com">denmaublog.herokuapp.com</a>
 
 ### User Accounts

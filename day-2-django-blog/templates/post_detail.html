@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    {% if user.is_authenticated %}
+        {#        <p>User: {{ user.id }}</p>#}
+        {#        <p>Blog Id: {{ object.author.id }}</p>#}
+        {% if user.id == object.author.id %}
+            <a href="{% url 'post_edit' post.pk %}">Edit Post</a>
+            <span class="mx-5"></span>
+            <a href="{% url 'post_delete' post.pk %}" class="text-danger">Delete Post</a>
+        {% else %}
+            <p class="text-danger text-center">Hi {{ user.username }}, you are not the author of this post, you can only
+                view but not edit</p>
+        {% endif %}
+        {#        <a href="{% url 'post_edit' post.pk %}">Edit Post</a>#}
+        {#        <span class="mx-5"></span>#}
+        {#        <a href="{% url 'post_delete' post.pk %}" class="text-danger">Delete Post</a>#}
+    {% else %}
+        <p class="text-center text-muted">If you are the author, <a href="{% url 'login' %}">Log in</a> to Edit or
+            Delete this post</p>
+    {% endif %}
+    <div class="post-entry">
+        <h2>{{ object.title }}</h2>
+        <p>{{ object.body }}</p>
+    </div>
+
+
+    <div class="card">
+        <div class="card-header">
+            <h6>Comments{% if not user.is_authenticated %} - <a href="{% url 'login' %} ">Login</a> to add
+                comment{% endif %}
+            </h6>
+        </div>
+        {# add comment if user is loged in #}
+        {% if user.is_authenticated %}
+            <form action="{% url 'add_comment' post.pk %}" method="post">
+                {% csrf_token %}
+                <div class="m-2 form-row input-group">
+                    <input class="form-control" type="text" name="comment" id="comment" placeholder="enter comment..."/>
+                    <button type="submit" class="btn btn-primary rounded mx-2" value="ok">Post</button>
+                </div>
+            </form>
+        {% endif %}
+        {% for comment in post.comments.all %}
+            <p class="ml-2"><span class="text-muted">{{ comment.author }}</span>&middot;{{ comment }}</p>
+        {% endfor %}
+    </div>
+    <span class="m-2"></span>
+{% endblock content %}
